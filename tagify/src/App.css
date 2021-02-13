@@ -36,5 +36,37 @@ textarea::placeholder{
   width: 400px;
   height:100px;
   margin: 50px;
-  border: 2px solid black;
+  border: 1px solid black;
 }
+.userItem{
+  margin-bottom: -16px;
+}
+
+.list{
+  width:100%;
+  overflow:hidden;
+border: 2px solid black;
+margin-top: 0px;}
+
+.list-item{
+  padding:8px 16px;
+  float:left;
+  width:40px;
+   height:40px;
+   border:none;
+   display:block;
+   outline:0
+  }
+.circle{
+  border-radius:50%
+}
+
+.ul{
+  list-style-type:none;
+  padding:0;
+  margin-left:400px;
+  width:500px;
+  height:60px
+}
+.ul .card{
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
