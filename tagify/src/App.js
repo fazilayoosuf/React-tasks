@@ -81,38 +81,53 @@ const userList = [
       super(props);
   this.state = {
     isTagVilisible:false,
-    toDoList: userList
+    toDoList: userList,
+    selectedTagList:[]
   };
       this.renderList=this.renderList.bind(this)
+      this.addUser=this.addUser.bind(this);
     }
 
     toggle=() =>{
       const isTagVilisible =! this.state.isTagVilisible
       this.setState({isTagVilisible})
     }
-    
-    renderinDiv=()=>{
-      <User />
+    addUser=(selectedUser)=>{
+       this.state.selectedTagList.push(selectedUser)
+       this.setState({selectedTagList:this.state.selectedTagList})
+       console.log(this.state.selectedTagList)
+    //   
+    // return items;
     }
+    
+    
     renderList = () => { 
-      console.log("calling renderlist")
+      console.log("calling renderlist");
+      const addChoosedUser=this.addUser;
       const items= this.state.toDoList.map(function(item){
         return  <div className="userItem" key={item.value}>
-        <User name={item.name} email={item.email} src={item.avatar} />
+        <User userDetail={item} onChoosedUser={addChoosedUser}/>
         </div>
       
     });
     return items;
   }
     render() {
+      const items= this.state.selectedTagList.map(function(item){
+            return  <div className="userItem" key={item.value}>
+            <User userDetail={item} />
+            </div>
+          
+        });
       return (
         <div>
             <div className="App">
-            <div className="App-header">Tagify</div>
-            {this.renderinDiv()}
+            <div className="App-header">Tagify</div><div>
+              {items}
+            </div>
           <textarea
             className="textareaEl"
-            placeholder="Add tags..." onClick={this.toggle} />
+            placeholder="Add tags..." onFocus={this.toggle} />
             <br />  
           </div>
           {this.state.isTagVilisible ? this.renderList():null}

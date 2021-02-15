@@ -1,12 +1,13 @@
 function User(props){
-    return (
+  
+      return (
         <div className="container">
              <ul className="ul card">
         <li className="list">
-        <img src={props.src} className="list-item circle w3-hide-small" ></img>
-        <div className="list-item">
-          <span >{props.name}</span>
-          <span>{props.email}</span>
+        <img src={props.userDetail.avatar} className="list-item circle w3-hide-small" ></img>
+        <div className="list-item" onClick={props.onChoosedUser.bind(null,props.userDetail)}>
+          <span >{props.userDetail.name}</span>
+          <span>{props.userDetail.email}</span>
         </div>
       </li>
       </ul>
