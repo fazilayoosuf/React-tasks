@@ -85,7 +85,8 @@ const userList = [
     selectedTagList:[]
   };
       this.renderList=this.renderList.bind(this)
-      this.addUser=this.addUser.bind(this);
+      this.addUser=this.addUser.bind(this)
+      this.renderSelectedItems=this.renderSelectedItems.bind(this)
     }
 
     toggle=() =>{
@@ -96,8 +97,7 @@ const userList = [
        this.state.selectedTagList.push(selectedUser)
        this.setState({selectedTagList:this.state.selectedTagList})
        console.log(this.state.selectedTagList)
-    //   
-    // return items;
+   
     }
     
     
@@ -112,23 +112,32 @@ const userList = [
     });
     return items;
   }
+  renderSelectedItems=()=>{
+    const addChoosedUser=this.addUser;
+
+    const items= this.state.selectedTagList.map(function(item){
+      return  <span key={item.value}>
+      <User userDetail={item} onChoosedUser={addChoosedUser} />
+      </span>
+    
+  });
+  return items;
+}
+  
     render() {
-      const items= this.state.selectedTagList.map(function(item){
-            return  <div className="userItem" key={item.value}>
-            <User userDetail={item} />
-            </div>
-          
-        });
+      
       return (
         <div>
             <div className="App">
-            <div className="App-header">Tagify</div><div>
-              {items}
-            </div>
-          <textarea
+            <div className="App-header">Tagify</div>
+            <div className="item-container">
+              <div className="items"> {this.renderSelectedItems()}</div>
+           
+          <input type="text"
             className="textareaEl"
             placeholder="Add tags..." onFocus={this.toggle} />
-            <br />  
+            
+          </div>
           </div>
           {this.state.isTagVilisible ? this.renderList():null}
           </div>

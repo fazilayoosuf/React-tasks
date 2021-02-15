@@ -3,20 +3,6 @@
 }
 
 
-
-.listEl{
-  list-style: none;
-  height: 20px;
-  width: 300px;
-  padding: 10px;
-  justify-content: center;
-  border: 2px solid black;
-  align-items: left;
-  justify-content: center;
-  margin-left: 400px;
- 
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
@@ -27,19 +13,35 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-textarea::placeholder{
-  font-size: 20px;
-  color:black;
-  padding: 10px;
+
+.item-container {
+  border-style: solid;
+  border-radius: 10px;
+  width: 750px;
+  margin: auto;
+  margin-top: 40px;
 }
 .textareaEl{
-  width: 400px;
-  height:100px;
-  margin: 50px;
-  border: 1px solid black;
+  height: 45px;
+  width: 250px;
+  border-style: none;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 10px;
 }
+  .textareaEl:focus{
+    outline: none;
+  }
 .userItem{
   margin-bottom: -16px;
+}
+.tag {
+  border-style: groove;
+  border-radius: 10px;
+  width:100px;
+  height: 40px;
+  display: flex;
+  float: left;
 }
 
 .list{
@@ -65,7 +67,7 @@ margin-top: 0px;}
   list-style-type:none;
   padding:0;
   margin-left:400px;
-  width:500px;
+  width:400px;
   height:60px
 }
 .ul .card{
