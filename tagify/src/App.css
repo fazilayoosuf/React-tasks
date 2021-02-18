@@ -37,13 +37,29 @@
 }
 .tag {
   border-style: groove;
-  border-radius: 10px;
-  width:100px;
-  height: 40px;
-  display: flex;
-  float: left;
-}
+border-radius: 10px;
+width: auto;
+height: 50px;
+display: flex;
+float: left;
+background-image: linear-gradient(rgb(149, 41, 221), purple);
 
+}
+.spanList{
+  margin-top:5px;
+}
+.img{
+ border-radius: 50%;
+    height:40px;
+    margin: 10px;
+
+}
+.closeBtn{
+  margin: 3px 15px;
+  font-size: 30px;
+  width: 5px;
+  height: 5px;
+}
 .list{
   width:100%;
   overflow:hidden;

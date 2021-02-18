@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import SelectedUser from './selecteduser';
 import User from "./User";
 const userList = [
   {
@@ -97,9 +98,18 @@ const userList = [
        this.state.selectedTagList.push(selectedUser)
        this.setState({selectedTagList:this.state.selectedTagList})
        console.log(this.state.selectedTagList)
-   
+       let index=this.state.toDoList.indexOf(selectedUser)
+   this.state.toDoList.splice(index,1)
+   this.setState({toDoList:this.state.toDoList})
     }
-    
+    deleteUser=(selectedUser)=>{
+      this.state.toDoList.unshift(selectedUser)
+      this.setState({toDoList:this.state.toDoList})
+      console.log(this.state.toDoList)
+      let index=this.state.selectedTagList.indexOf(selectedUser)
+  this.state.selectedTagList.splice(index,1)
+  this.setState({selectedTagList:this.state.selectedTagList})
+   }
     
     renderList = () => { 
       console.log("calling renderlist");
@@ -113,11 +123,11 @@ const userList = [
     return items;
   }
   renderSelectedItems=()=>{
-    const addChoosedUser=this.addUser;
+    const deleteChoosedUser=this.deleteUser;
 
     const items= this.state.selectedTagList.map(function(item){
       return  <span key={item.value}>
-      <User userDetail={item} onChoosedUser={addChoosedUser} />
+      <SelectedUser userDetail={item} onDelete={deleteChoosedUser} />
       </span>
     
   });
